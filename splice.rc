@@ -1,0 +1,61 @@
+# rc file for splice
+
+# default output type (legal options are: cd, DAT, 8mm, & cassette)
+type = cd
+
+# full path to ps2pdf
+ps2pdfPath=/opt/local/bin/ps2pdf
+
+# path to the PS viewer
+psViewPath  = /usr/bin/open -a Preview
+
+# path to the PDF viewer
+pdfViewPath  = /usr/bin/open -a Preview
+
+# location of the alias file
+aliasFile = /Users/steve/perl/splice/aliases
+
+# directory for itunes output
+itunes.output.directory = ~/Desktop
+
+# default name for input file
+inFile = songs
+
+# default width to wrap a song to another line. 
+wrapWidth = 9999
+
+# Boolean option. print the songs in one column down the middle?
+oneColumn = 0
+
+# Boolean option. print the label title above the songs?
+printTitles = 0
+
+# Boolean option. Single CD labels are for slim jewel cases?
+slim =0
+
+# Boolean option. rotate the songs by 90 degrees?
+rotate = 0
+
+# Boolean option. print labels above each side/disc.
+generateSideLabels = 0
+
+# Boolean options.  create date labels if present for CDs
+cdDateLabels = 0
+
+# Boolean option. rotate the top spine by 180 degrees.  tape labels only.
+flipSpine = 1
+
+# Boolean option. pre-pend each song with a number.
+numberEachSong = 0
+
+# use time fields
+useTimes = 0
+
+# print filler title
+fillerTitle = 0
+
+# Stop at postscript
+postscript = 0
+
+# What dolby symbol to print.
+#dolby = "B"

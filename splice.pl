@@ -167,7 +167,7 @@ to use (both by splice and the person creating the setlist) and easy to read.
  --jewelcase         : jewel case labels (default)
  --mix               : Create a mix disc (synonym for --times)
  --number            : Number each song
- --postscript	    : generate a PS file only (do not generate a PDF file)
+ --postscript	     : generate a PS file only (do not generate a PDF file)
  --size <size>       : font size
  --slim              : Single CD labels for "slim" cases
  --stdout            : Print out the input data (really only useful with --itunes)
@@ -186,6 +186,6 @@ Steven Scholnick <steve@scholnick.net>
 
 =head1 COPYRIGHT
 
-(c) Steven Scholnick <steve\@scholnick.net> 2000 - 2012
+(c) Steven Scholnick <steve\@scholnick.net> 2000 - 2013
 splice is published under LGPL. See http://www.scholnick.net/splice/license.html for details
 

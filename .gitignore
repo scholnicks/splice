@@ -1,6 +1,5 @@
-RemoteSystemsTempFiles
 postscript
-.metadata
 *.swp
 *.pdf
 *.ps
+.idea

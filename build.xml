@@ -14,42 +14,6 @@
 	
 	<target name="tar" depends="create_tar,upload_tar,clean" />
 
-	<target name="release" depends="tar">
-		<exec executable="hg">
-			<arg line="commit -m'updated for ${version}'" />
-        </exec>
-        <echo message="Commited to Mercurial" />
-
-		<exec executable="hg">
-			<arg line="tag ${version}" />
-        </exec>
-        <echo message="Mercurial tag ${version} has been created" />
-    </target>
-
-    <target name="dropbox">
-		<chmod file="${dropbox_directory}" perm="755" />
-
-    	<mkdir dir="${dropbox_directory}" />
-    	<mkdir dir="${dropbox_directory}/Splice" />
-		<chmod file="${dropbox_directory}/Splice" perm="755" />
-		<copy toDir="${dropbox_directory}/Splice">
-			<fileset dir="Splice">
-				<exclude name="WebUtilties.pm" />
-			</fileset>
-		</copy>
-		<chmod perm="a+r">
-			<fileset dir="${dropbox_directory}/Splice">
-				<include name="*.pm" />
-			</fileset>
-		</chmod>
-		
-		<copy file="splice.pl" todir="${dropbox_directory}" />
-		<chmod file="${dropbox_directory}/splice.pl" perm="755" />
-		<chmod file="${dropbox_directory}" perm="755" />
-		
-		<echo message="Dropbox files have been created." />
-    </target>
-	
 	<target name="install" depends="init,fix_main">
 		<copy toDir="${module_directory}">
 			<fileset dir="Splice">

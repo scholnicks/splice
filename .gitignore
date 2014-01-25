@@ -1,4 +1,6 @@
-bin
+RemoteSystemsTempFiles
+postscript
+.metadata
 *.swp
 *.pdf
 *.ps

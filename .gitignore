@@ -6,6 +6,5 @@ postscript
 www
 build.xml
 Makefile
-bin
 cgi-bin
 

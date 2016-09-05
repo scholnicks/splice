@@ -1,0 +1,8 @@
+%%Trailer
+%%  This form should always be here at the end, to make sure that the
+%%  final page is dumped even if there are an odd number of labels
+%%  being printed.
+%%
+tick 0 ne { showpage } if
+end % pop the TapeDict
+%%EOF

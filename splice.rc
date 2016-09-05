@@ -13,7 +13,7 @@ psViewPath  = /usr/bin/open -a Preview
 pdfViewPath  = /usr/bin/open -a Preview
 
 # location of the alias file
-aliasFile = /Users/steve/perl/splice/aliases
+#aliasFile = ~/splice/aliases
 
 # directory for itunes output
 itunes.output.directory = ~/Desktop
@@ -21,7 +21,7 @@ itunes.output.directory = ~/Desktop
 # default name for input file
 inFile = songs
 
-# default width to wrap a song to another line. 
+# default width to wrap a song to another line.
 wrapWidth = 9999
 
 # Boolean option. print the songs in one column down the middle?

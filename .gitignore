@@ -3,3 +3,9 @@ postscript
 *.pdf
 *.ps
 .idea
+www
+build.xml
+Makefile
+bin
+cgi-bin
+

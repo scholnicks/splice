@@ -4,7 +4,7 @@
 type = cd
 
 # full path to ps2pdf
-ps2pdfPath=/opt/local/bin/ps2pdf
+ps2pdfPath=/usr/local/bin/ps2pdf
 
 # path to the PS viewer
 psViewPath  = /usr/bin/open -a Preview

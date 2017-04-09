@@ -132,7 +132,7 @@ sub version {
 }
 
 sub help {
-	pod2usage(-verbose=>99,-exitvalue=>1,-sections=>[ qw(DESCRIPTION OPTIONS COPYRIGHT)] );
+	pod2usage(-verbose=>99,-exitvalue=>1,-sections=>[ qw(OPTIONS)] );
 }
 
 __END__
@@ -182,11 +182,11 @@ splice Online at L<http://www.scholnick.net/splice/>
 
 =head1 AUTHOR
 
-Steven Scholnick <steve@scholnick.net>
+Steven Scholnick <scholnicks@gmail.com>
 
 =head1 COPYRIGHT
 
-(c) Steven Scholnick <steve\@scholnick.net> 2000 - 2014
+(c) Steven Scholnick <steve\@scholnick.net> 2000 -
 
 splice is published under MIT. See http://www.scholnick.net/license.txt
 

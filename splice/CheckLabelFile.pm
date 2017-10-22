@@ -12,7 +12,7 @@ our @EXPORT = qw( checkSpliceOutput );
 
 # checkSpliceOutput
 #   checks the splice output for matching number
-#   or parens etc.  
+#   or parens etc.
 #
 #   the error message can be formatted as HTML (if arg
 #   2 is true)
@@ -20,9 +20,9 @@ sub checkSpliceOutput
 {
     my $labelText = shift;
     my $useHTML   = shift || 0;
-	
+
 	my @text     = split('\n',$labelText);
-	
+
 	my $lcnt       = 0;
 	my $start      = 0;
 	my $sides      = 0;
@@ -32,7 +32,7 @@ sub checkSpliceOutput
 	my @bracks     = ();
 	my @temp       = ();
 	my $sidesCheck = 0;
-	
+
 	for (my $i=0; $i < $#text; $i++)
 	{
 	  $_ = $text[$i];
@@ -61,7 +61,7 @@ sub checkSpliceOutput
 	        return "Missing Delimiter<br />" if $useHTML;
 	        return "\n\nsplice : Missing symbol before line $lcnt\n";
 	     }
-	      
+
 	     $sides      = 0;
 	     $sidesCheck = 1;
 	     @parens     = ();
@@ -109,3 +109,11 @@ sub checkSpliceOutput
 }
 
 1;
+
+__END__
+
+=head1 AUTHOR INFORMATION
+
+Copyright 2000-, Steven Scholnick <scholnicks@gmail.com>
+
+splice is published under MIT.  See license.html for details

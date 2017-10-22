@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# (c) Steven Scholnick <steve@scholnick.net>
+# (c) Steven Scholnick <scholnicks@gmail.com>
 #
 # splice is published under MIT.  See http://www.scholnick.net/license.txt for details
 #
@@ -38,27 +38,27 @@ our $VERSION = '2.6.1';
 	}
 
 	GetOptions(
-		'1column!'			=> \$prefs{oneColumn},
-		'8mm'				=> sub { $prefs{type} = "8mm" },
-		'addinfo=s'			=> \$prefs{add_info},
-		'cassette'			=> sub { $prefs{type} = "cassette" },
-		'dat'				=> sub { $prefs{type} = "DAT" },
-  		'filler!' 			=> \$prefs{fillerTitle},
-  		'flap=s'			=> \$prefs{flap},
-  		'font=s'			=> \$prefs{font},
-  		'itunes=s' 			=> \$prefs{itunesPlaylist},
- 		'jewelcase'			=> sub { $prefs{type} = "cd" },
- 		'help'      		=> \&help,
- 		'number!'           => \$prefs{numberEachSong},
-  		'mix!'				=> \$prefs{useTimes},
- 		'postscript!'		=> \$prefs{postscript},
- 		'slim!'				=> \$prefs{slim},
- 		'size=s'			=> \$prefs{fontSize},
-		'stdout!'           => \$prefs{stdout},
-    	'times!' 			=> \$prefs{useTimes},
-    	'title!'			=> \$prefs{printTitles},
-		'version'   		=> \&version,
-		'width=s'			=> \$prefs{wrapWidth},
+		'1column!'	  => \$prefs{oneColumn},
+		'8mm'		  => sub { $prefs{type} = "8mm" },
+		'addinfo=s'	  => \$prefs{add_info},
+		'cassette'	  => sub { $prefs{type} = "cassette" },
+		'dat'		  => sub { $prefs{type} = "DAT" },
+  		'filler!' 	  => \$prefs{fillerTitle},
+  		'flap=s'	  => \$prefs{flap},
+  		'font=s'	  => \$prefs{font},
+  		'itunes=s' 	  => \$prefs{itunesPlaylist},
+ 		'jewelcase'	  => sub { $prefs{type} = "cd" },
+ 		'help'        => \&help,
+ 		'number!'     => \$prefs{numberEachSong},
+  		'mix!'		  => \$prefs{useTimes},
+ 		'postscript!' => \$prefs{postscript},
+ 		'slim!'		  => \$prefs{slim},
+ 		'size=s'	  => \$prefs{fontSize},
+		'stdout!'     => \$prefs{stdout},
+    	'times!' 	  => \$prefs{useTimes},
+    	'title!'	  => \$prefs{printTitles},
+		'version'     => \&version,
+		'width=s'	  => \$prefs{wrapWidth},
 	) or help();
 
 	$prefs{wrapWidth} = 9999 if $prefs{oneColumn};
@@ -186,7 +186,7 @@ Steven Scholnick <scholnicks@gmail.com>
 
 =head1 COPYRIGHT
 
-(c) Steven Scholnick <steve\@scholnick.net> 2000 -
+(c) Steven Scholnick <scholnicks@gmail.com> 2000 -
 
 splice is published under MIT. See http://www.scholnick.net/license.txt
 

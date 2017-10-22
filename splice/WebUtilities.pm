@@ -9,8 +9,8 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-our @EXPORT = qw(missingInputHTML getBadInputHTML showRequiredFieldPage 
-			 		showInvalidCharPage getHTMLPageFooter 
+our @EXPORT = qw(missingInputHTML getBadInputHTML showRequiredFieldPage
+			 		showInvalidCharPage getHTMLPageFooter
 			 		getHTMLPageHeader showMissingInputPage
 			 		getTimeStamp sendMail calculateMD5forFile
 			   );
@@ -20,7 +20,7 @@ our $VERSION  = '1.00';
 sub sendMail
 {
    my ($rec,$from,$subject,$text) = @_;
-   
+
    open(MAIL,"|/usr/sbin/sendmail -t") || return;
    print MAIL "To: $rec\n";
    print MAIL "From: $from\n";
@@ -39,9 +39,9 @@ sub calculateMD5forFile
     binmode(FILE);
 
     my $result = new Digest::MD5->addfile(*FILE)->hexdigest();
-    
+
     close FILE;
-    
+
     $result;
 }
 
@@ -54,7 +54,7 @@ sub getHTMLPageHeader
     $s   .= "   <title>$title</title>\n";
     $s   .= "</head>\n";
     $s   .= qq(<body bgcolor="white">\n);
-    
+
     $s;
 }
 
@@ -112,17 +112,17 @@ sub showMissingInputPage
 sub missingInputHTML
 {
    my $errorText=<<'EOE';
-<p>a Missing Input File.</p> 
+<p>a Missing Input File.</p>
 <p><b>Common Causes of this Error:</b></p>
 <ol>
 <li>You did not follow the correct label format.</li>
 <li>You forgot to denote the number of tapes in the recording.</li>
 <li>You entered blank lines in your input file or set list.</li>
-<li>Your email address is too long for the program. This is a problem we are working to correct. 
-Please try entering just your userid without the @... part and see if this corrects the problem.</li> 
-</ol> 
+<li>Your email address is too long for the program. This is a problem we are working to correct.
+Please try entering just your userid without the @... part and see if this corrects the problem.</li>
+</ol>
 <p>
-If you still have problems, send us a 
+If you still have problems, send us a
 <a href="http://www.scholnick.net/splice/bugreport">bug report</a>.
 </p>
 
@@ -133,13 +133,21 @@ EOE
 sub getTimeStamp
 {
 	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime(time);
-	
+
 	# create the time stamp
 	my $date = join("_",$mon+1,$mday,$year+1900);
 	my $time = join(":",$hour,$min,$sec);
 	my $stamp = $date . "_" . $time;
-	
+
 	$stamp;
 }
 
 1;
+
+__END__
+
+=head1 AUTHOR INFORMATION
+
+Copyright 2000-, Steven Scholnick <scholnicks@gmail.com>
+
+splice is published under MIT.  See license.html for details

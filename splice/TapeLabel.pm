@@ -20,3 +20,11 @@ sub new
 
 1;
 
+__END__
+
+=head1 AUTHOR INFORMATION
+
+Copyright 2000-, Steven Scholnick <scholnicks@gmail.com>
+
+splice is published under MIT.  See license.html for details
+

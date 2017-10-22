@@ -54,3 +54,11 @@ sub isSlim              { $_[0]->{slim};            	}
 sub getItunesPlaylist	{ $_[0]->{itunesPlaylist};      }
 
 1;
+
+__END__
+
+=head1 AUTHOR INFORMATION
+
+Copyright 2000-, Steven Scholnick <scholnicks@gmail.com>
+
+splice is published under MIT.  See license.html for details

@@ -21,7 +21,7 @@ sub new {
 
     $self->{data}            = $arg{data}            || dieMessage "Data is required";
     $self->{filePath}        = $arg{filePath}        || "./songs.label";
-    $self->{spliceObject}	 = $arg{spliceObject}	 || undef;
+    $self->{spliceObject}	   = $arg{spliceObject}	   || undef;
     $self->{addInfoFontSize} = $arg{addInfoFontSize} || 0;
     $self->{flapFontSize}    = $arg{flapFontSize}    || 0;
     $self->{font}            = $arg{font}            || "0";

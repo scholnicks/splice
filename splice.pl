@@ -2,9 +2,9 @@
 #
 # (c) Steven Scholnick <scholnicks@gmail.com>
 #
-# splice is published under MIT.  See http://www.scholnick.net/license.txt for details
+# splice is published under MIT.  See https://scholnick.net/license.txt for details
 #
-# splice Home Page : http://www.scholnick.net/splice
+# splice Home Page : https://www.scholnick.net/splice
 
 use strict;
 use warnings;

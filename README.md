@@ -6,3 +6,5 @@ The setlists are stored in a simple textual fashion (see below) consisting of a 
 
 Multiple labels can be generated with a single input file.  1 CD label, 2 cassette/8mm labels, or 3 DAT labels
 will be generated per page.
+
+See https://github.com/scholnicks/splice/wiki for more details.

@@ -231,4 +231,4 @@ from the last side break song.
 
 Copyright 2000-, Steven Scholnick <scholnicks@gmail.com>
 
-splice is published under MIT.  See license.html for details
+splice is published under MIT.  See license.txt for details

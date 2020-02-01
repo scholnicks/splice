@@ -2,9 +2,7 @@
 #
 # (c) Steven Scholnick <scholnicks@gmail.com>
 #
-# splice is published under MIT.  See https://scholnick.net/license.txt for details
-#
-# splice Home Page : https://scholnick.net/splice
+# splice is published under MIT.
 
 use strict;
 use warnings;
@@ -178,7 +176,7 @@ to use (both by splice and the person creating the setlist) and easy to read.
 
 =head1 SEE ALSO
 
-splice Online at L<https://scholnick.net/splice/>
+splice Online at L<https://github.com/scholnicks/splice/wiki>
 
 =head1 AUTHOR
 
@@ -188,5 +186,5 @@ Steven Scholnick <scholnicks@gmail.com>
 
 (c) Steven Scholnick <scholnicks@gmail.com> 2000 -
 
-splice is published under MIT. See https://scholnick.net/license.txt
+splice is published under MIT.
 

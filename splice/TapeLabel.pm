@@ -4,8 +4,7 @@ use strict;
 use warnings;
 use base qw( Splice::Label );
 
-sub new
-{
+sub new {
     my $package  = shift;
     my $dataRef  = shift;
 

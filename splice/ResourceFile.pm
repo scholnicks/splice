@@ -36,8 +36,7 @@ sub getValue {			# returns a value for a key
 	defined $nodes ? $nodes->{$key} : undef;
 }
 
-sub readFile
-{
+sub readFile {
 	my $self = shift;
 
 	my $filePath = $self->{fileLocation};

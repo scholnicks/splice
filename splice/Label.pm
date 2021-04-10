@@ -46,8 +46,7 @@ sub loadNumberOfLabels  { # gets the number of labels from the input data
 
     $self->{numberOfLabels} = $1;
 
-    if ($2 =~ /mix/)
-    {
+    if ($2 =~ /mix/) {
     	Splice::Parameters::getInstance()->setTimes(1);
     }
 
@@ -62,8 +61,7 @@ sub loadRecordAtInfo {
 
     my $tagLine = "Recorded at ";
 
-    while ($dataRef->[$i] && $dataRef->[$i] !~ /^_\w*/ && $i < scalar(@{$dataRef}))
-    {
+    while ($dataRef->[$i] && $dataRef->[$i] !~ /^_\w*/ && $i < scalar(@{$dataRef})) {
         chomp $dataRef->[$i];
         next if $dataRef->[$i] =~ /^$/;
 
@@ -104,8 +102,7 @@ sub parseData {
     my $text = "";
 
     $i++;
-    while ($i < scalar(@$dataRef) && $dataRef->[$i] !~ /^_\w*/)
-    {
+    while ($i < scalar(@$dataRef) && $dataRef->[$i] !~ /^_\w*/) {
         $text .= $dataRef->[$i++];
         $text .= ' ';
     }
@@ -114,7 +111,6 @@ sub parseData {
 
     $i++;
     $self->loadAddInfo($dataRef,$i);
-
     $self->loadSongs( $text );
 
 }
@@ -131,16 +127,14 @@ sub asInputData {
 	$s .= "_";
 	$s .= "\n";
 
-    foreach my $song (@{$self->{setList}})
-    {
+    foreach my $song (@{$self->{setList}}) {
     	next if ! $song;
 
     	$s .= '{' if ($song->isItalics());
     	$s .= $song->getText();
     	$s .= '}' if ($song->isItalics());
 
-    	if ($isMix)
-    	{
+    	if ($isMix) {
     		$s .= "/";
     		$s .= $song->getTimeLength();
     	}
@@ -163,15 +157,13 @@ sub loadAddInfo {
 
     return if $i == $nLines;
 
-    while ($i < $nLines && $dataRef->[$i] !~ /^_\W*/)
-    {
+    while ($i < $nLines && $dataRef->[$i] !~ /^_\W*/) {
         chomp $dataRef->[$i];
         push( @{$self->{addInfo1}}, $dataRef->[$i++] );
     }
 
     $i++;
-    while ($i < $nLines && $dataRef->[$i] !~ /^_\W*/)
-    {
+    while ($i < $nLines && $dataRef->[$i] !~ /^_\W*/) {
         chomp $dataRef->[$i];
         push( @{$self->{addInfo2}}, $dataRef->[$i++] );
     }
@@ -201,8 +193,7 @@ sub loadSongs {
 
     my $factory = Splice::SongFactory::getInstance();
 
-    for (my $i = 0; $i < scalar(@allSongs); $i += $loopIncrement)
-    {
+    for (my $i = 0; $i < scalar(@allSongs); $i += $loopIncrement) {
         my $song = $factory->createSong($allSongs[$i],$allSongs[$i+1]);
 
         # clean the times also
@@ -233,8 +224,7 @@ sub combine {
 
     my $foundSideBreak = 0;
     foreach my $song (@{$self->{setList}}) {
-        if ($song->isEndOfSide())
-        {
+        if ($song->isEndOfSide()) {
             $foundSideBreak = 1;
             last;
         }
@@ -295,8 +285,7 @@ sub addSongs {
     my @array = @_;
 
     # first pre-pend a title for this label
-    if (Splice::Parameters::getInstance()->isFillerTitle())
-    {
+    if (Splice::Parameters::getInstance()->isFillerTitle()) {
         $self->unshiftSongWithEmptyBorder("$self->{artist} - $self->{venue}");
     }
 
@@ -335,8 +324,7 @@ sub getSongsAfterSideBreak {
 
     my @songsAfter = ();
 
-    # grab all the songs after the side break
-    # and turn off the side break flag
+    # grab all the songs after the side break and turn off the side break flag
     if ($foundSideBreak != 0) {
         @songsAfter = splice(@{$self->{setList}},$foundSideBreak+1);
         $self->{setList}->[$foundSideBreak]->setEndOfSide(0);
@@ -635,12 +623,9 @@ sub isPrintOneColumn {
     );
 }
 
-sub getNumberOfSideBreaksNeeded
-{
+sub getNumberOfSideBreaksNeeded {
     my $self = shift;
-
     my $numberofLabels = $self->getNumberOfLabels();
-
     return( (2 * $numberofLabels) - 1);
 }
 

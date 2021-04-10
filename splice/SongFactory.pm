@@ -23,14 +23,16 @@ sub _new {
     $self;
 }
 
-sub getInstance		# singleton method
-{
+sub getInstance	{	# singleton method
     $instance = _new Splice::SongFactory() if ! defined $instance;
     return $instance;
 }
 
-sub _readAliasFile	# reads in the alias file
-{					# the aliases are stored in the main hashtable for this class
+
+# reads in the alias file
+sub _readAliasFile {
+
+	# the aliases are stored in the main hashtable for this class
 
 	my $self      = shift;
     my $aliasFile = Splice::Parameters::getInstance()->getAliasFile();
@@ -38,8 +40,7 @@ sub _readAliasFile	# reads in the alias file
     return if (! $aliasFile || ! -e $aliasFile);
 
     open(my $ALIAS,'<',$aliasFile) or return;
-    while (<$ALIAS>)
-    {
+    while (<$ALIAS>) {
     	chomp;
     	s/#.*//;
     	s/^\s+//;
@@ -52,8 +53,7 @@ sub _readAliasFile	# reads in the alias file
     close $ALIAS;
 }
 
-sub clean
-{
+sub clean {
 	my $self	= shift;
 	local $_	= shift;				# song text, save in $_ for ease of use
 

@@ -12,8 +12,7 @@ use Splice::Utilities;
 
 use base qw( Splice::Label );
 
-sub new
-{
+sub new {
     my $package = shift;
     my $self    = {};
 
@@ -28,8 +27,7 @@ sub new
     return $self;
 }
 
-sub isPrintTitles
-{
+sub isPrintTitles {
 	my $self = shift;
 
 	my $param = Splice::Parameters::getInstance();
@@ -39,16 +37,13 @@ sub isPrintTitles
 	return $param->isPrintTitles() ;
 }
 
-sub checkForEmptyTitle
-{
+sub checkForEmptyTitle {
 	my $self = shift;
 
 	my $param = Splice::Parameters::getInstance();
 
-	if ($self->isSingleDisc())
-	{
-		if ($self->isPrintTitles())
-		{
+	if ($self->isSingleDisc()) {
+		if ($self->isPrintTitles()) {
 			# single titles down the center look better with a space
 			# between the title and the first song
 			unshift( @{$self->{setList}}, Splice::SongFactory::getInstance()->createEmptySong() );
@@ -57,8 +52,7 @@ sub checkForEmptyTitle
 		# for slim jewel cases combine the artist name and the venue together
 		# these will be printed in the title line at the top
 
-		if ($param->isSlim())
-		{
+		if ($param->isSlim()) {
 			if ($self->getVenue()) {
 				$self->setVenue( $self->getArtist() . " - " . $self->getVenue() );
 			}
@@ -69,8 +63,7 @@ sub checkForEmptyTitle
 	}
 }
 
-sub loadArtistVenueData
-{
+sub loadArtistVenueData {
     my $self = shift;
     my $line = shift;
 
@@ -81,15 +74,13 @@ sub loadArtistVenueData
 
     # this is now (4/22/01) a user pref, if they want it they can have it
 
-    if ( ! Splice::Parameters::getInstance()->isCDDateLabels() && $self->getDate() )
-    {
+    if ( ! Splice::Parameters::getInstance()->isCDDateLabels() && $self->getDate() ) {
         $self->setVenue( $self->getVenue() . " " . $self->getDate() );
         $self->setDate("");
     }
 }
 
-sub combine
-{
+sub combine {
     my $self  = shift;
     my $other = shift;
 
@@ -98,18 +89,15 @@ sub combine
     $self->setSingleDisc( 0 );	# combining 2 set lists, turn off single disc
 }
 
-sub loadNumberOfLabels  # gets the number of labels from the input data
-{
+sub loadNumberOfLabels  { # gets the number of labels from the input data
     my $self = shift;
     my $line = shift;
 
     $self->SUPER::loadNumberOfLabels( $line ) if $line;
 
-    if( $self->getNumberOfLabels() == 1 )
-    {
+    if( $self->getNumberOfLabels() == 1 ) {
 	    # if there is only one disc specified, enabled one column
     	$self->setOneColumn( 1 );
-
     	$self->setSingleDisc( 1 );
     }
 
@@ -118,16 +106,14 @@ sub loadNumberOfLabels  # gets the number of labels from the input data
 }
 
 #  returns the side label
-sub getSideLabel
-{
+sub getSideLabel {
     my $self      = shift;
     my $sideCount = shift;
 
     return "";
 }
 
-sub prepareSetList
-{
+sub prepareSetList {
     my $self = shift;
 
 	my $info1 = $self->getAddInfo1();
@@ -138,21 +124,18 @@ sub prepareSetList
 	# with a single disc the setlist is printed down the center
 	# just combine the information
 
-	if( $self->isSingleDisc() && $info2 )
-	{
+	if( $self->isSingleDisc() && $info2 ) {
 		push( @{$info1}, @{$info2} );
 		$info2 = undef;
 	}
 
 	my $factory = Splice::SongFactory::getInstance();
 
-	if( ! $info2 )			# just one
-	{
+	if( ! $info2 )	{		# just one
 		# just one set so put it on the end of hte setlist
 		$self->addAdditionalInformationToSetlist( $info1 );
 	}
-	else
-	{
+	else {
 		# where does the 2nd side start?
 		my $secondSideStart = $self->getFirstSideBreakIndex() + 1;
 
@@ -182,8 +165,7 @@ sub prepareSetList
 	}
 }
 
-sub matchSizes
-{
+sub matchSizes {
 	my $self          = shift;
 	my $secondSideRef = shift;
 
@@ -192,24 +174,19 @@ sub matchSizes
 
 	my $factory = Splice::SongFactory::getInstance();
 
-	if( $aSize > $bSize )
-	{
-		for( my $i=0; $i < ($aSize-$bSize)+1; $i++ )
-		{
+	if( $aSize > $bSize ) {
+		for( my $i=0; $i < ($aSize-$bSize)+1; $i++ ) {
 			push( @{$secondSideRef}, $factory->createEmptySong() );
 		}
 	}
-	elsif( $bSize > $aSize )
-	{
-		for( my $i=0; $i < ($bSize-$aSize)-1; $i++ )
-		{
+	elsif( $bSize > $aSize ) {
+		for( my $i=0; $i < ($bSize-$aSize)-1; $i++ ) {
 			push( @{$self->{setList}}, $factory->createEmptySong() );
 		}
 	}
 }
 
-sub addAdditionalInformationToSetlist
-{
+sub addAdditionalInformationToSetlist {
 	my $self = shift;
 	my $info = shift;
 
@@ -218,28 +195,24 @@ sub addAdditionalInformationToSetlist
 	push( @{$self->{setList}}, $factory->createEmptySong() );
 	push( @{$self->{setList}}, $factory->createEmptySong() );
 
-	foreach my $line ( @{$info} )
-	{
+	foreach my $line ( @{$info} ) {
 		push( @{$self->{setList}}, $factory->createItalicsSong($line) );
 	}
 }
 
 
-sub getAddInfos
-{
+sub getAddInfos {
 	# for CD labels, the additional information is part of the setlist
 	my $self = shift;
 	return "";
 }
 
 
-sub isSingleDisc
-{
+sub isSingleDisc {
 	return $_[0]->{singleDisc};
 }
 
-sub setSingleDisc
-{
+sub setSingleDisc {
 	$_[0]->{singleDisc} = $_[1];
 }
 

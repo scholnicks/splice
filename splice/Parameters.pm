@@ -5,20 +5,17 @@ use warnings;
 
 our $instance = undef;
 
-sub getInstance         # singleton method
-{
+sub getInstance   {      # singleton method
     $instance = _new Splice::Parameters() if ! defined $instance;
     $instance;
 }
 
-sub _new
-{
+sub _new {
     my $package  = shift;
     bless( {}, $package );
 }
 
-sub setData
-{
+sub setData {
     my $self   = shift;
     my %arg    = @_;
 

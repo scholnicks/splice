@@ -142,8 +142,7 @@ sub setPostscript 	{ $_[0]->{postscript} = $_[1]; 	}
 sub isPostscript 	{ $_[0]->{postscript}; 			}
 
 
-sub getTrailer
-{
+sub getTrailer {
 return <<'END_OF_TRAILER';
 %%Trailer
 %%  This form should always be here at the end, to make sure that the

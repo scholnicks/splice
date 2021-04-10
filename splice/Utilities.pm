@@ -17,8 +17,7 @@ our @EXPORT = qw(stripFile trim getPath getSeparator getResourceFilePath
 			  );
 
 #	returns the RC file path
-sub getResourceFilePath
-{
+sub getResourceFilePath {
 	my $unixStyle  = shift;						# unix rc file naming, eg .splicerc
 	my $otherStyle = shift; 					# win rc file, eg splice.rc
 	my $homeDir    = shift || $ENV{"HOME"};		# home directory
@@ -29,37 +28,32 @@ sub getResourceFilePath
   	# if not there, try others style
   	$initPath = getPath($homeDir,$otherStyle) if (! -e $initPath);
 
- 	if (-e $initPath)
-  	{
+ 	if (-e $initPath) {
   		return $initPath;
     }
-    else
-    {
+    else {
      	return undef;
     }
 }
 
-#  stripFile
 #   strips the splice input file of unwanted characters
-sub stripFile
-{
+sub stripFile {
    my $file = shift;
    my $temp = "$file.$$";
 
    open(my $INP,'>',$file) or die "stripFile : Cannot open input file $file\n";
    open(my $OUT,'>',$temp) or die "stripFile : Cannot open temp file\n";
 
-   while (<$INP>)
-   {
+   while (<$INP>) {
       chomp;
 
       tr/\015//d;		# eliminate ^M
 
-      s#/ #/#g;			# elim space after /
-      s/\| /\|/g;		# elim space after |
-      s/> />/g;			# elim space after >
+      s#/ #/#g;			# eliminate space after /
+      s/\| /\|/g;		# eliminate space after |
+      s/> />/g;			# eliminate space after >
 
-      s/ *$//;			# elim trailing spaces
+      s/ *$//;			# eliminate trailing spaces
 
       tr/\(/\[/;		# convert ( -> [
       tr/\)/\]/;		# convert ) -> ]
@@ -71,11 +65,9 @@ sub stripFile
    close($INP);
 
    rename($temp,$file);		# put the transformation back on the original
-
 }
 
-sub normalizeText			# removes all the "bad" stuff from the text
-{
+sub normalizeText	{		# removes all the "bad" stuff from the text
    	my $text      = shift;
     my $lowerCase = shift;
 
@@ -90,8 +82,7 @@ sub normalizeText			# removes all the "bad" stuff from the text
     $text;
 }
 
-sub getFileAsArray			# returns a whole file as an array text lines
-{
+sub getFileAsArray		{	# returns a whole file as an array text lines
 	my $file = shift;
 
 	my @lines;
@@ -108,8 +99,7 @@ sub getFileAsArray			# returns a whole file as an array text lines
 	@lines;
 }
 
-sub trim  # trims whitespace
-{
+sub trim  { # trims whitespace
     local $_ = shift;
 
 	return '' if( ! defined $_ );
@@ -119,8 +109,7 @@ sub trim  # trims whitespace
     $_;
 }
 
-sub printFile    # prints a file verbatim to the specified file handle
-{
+sub printFile  {  # prints a file verbatim to the specified file handle
    my $file = shift || return;
    my $FH   = shift || return;
 
@@ -129,21 +118,18 @@ sub printFile    # prints a file verbatim to the specified file handle
    close $INP;
 }
 
-sub getPath   # returns a full path
-{
+sub getPath  { # returns a full path
    my $dir      = shift;
    my $filename = shift;
 
-   if( $filename =~ m!^/! )     # check for a fully-qualified path
-   {
+   if( $filename =~ m!^/! )  {   # check for a fully-qualified path
        return $filename;
    }
 
    return "$dir/$filename";
 }
 
-sub absolutePath				# returns the complete absolute path
-{
+sub absolutePath	{			# returns the complete absolute path
 	my $path = shift;
 
 	return $path if ($path =~ m!^/!);
@@ -151,8 +137,7 @@ sub absolutePath				# returns the complete absolute path
 	return abs_path($path);
 }
 
-sub expandPath
-{
+sub expandPath {
 	my $path = shift;
 
 	return undef if ! $path;
@@ -167,13 +152,11 @@ sub expandPath
 	$path;
 }
 
-sub createDirectory				# creates directory if one does not exists
-{
+sub createDirectory		{		# creates directory if one does not exists
 	my $directory  = shift;
 	my $permission = shift;
 
-	if (! -e $directory)
-	{
+	if (! -e $directory) {
 		my $success = system( qq{mkdir "$directory"} );
 		return $success if $success != 0;
 
@@ -183,12 +166,10 @@ sub createDirectory				# creates directory if one does not exists
 	return 0;
 }
 
-sub cleanArguments
-{
+sub cleanArguments {
 	my @args = @_;
 
-	foreach (@args)
-	{
+	foreach (@args) {
 		chomp;
 		$_ = '' if (! $_);
 	}
@@ -196,13 +177,11 @@ sub cleanArguments
 	return @_;
 }
 
-sub warnMessage
-{
+sub warnMessage {
 	print STDERR 'splice : ' . join(' ',cleanArguments(@_)) . "\n";
 }
 
-sub dieMessage
-{
+sub dieMessage {
 	print STDERR 'splice : ' . join(' ',cleanArguments(@_)) . "\n";
 	exit -1;
 }

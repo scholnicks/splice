@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# vi: set syntax=perl ts=4 sw=4 sts=4 et ff=unix ai si :
 #
 # (c) Steven Scholnick <scholnicks@gmail.com>
 #

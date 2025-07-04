@@ -9,4 +9,4 @@ will be generated per page.
 
 See https://github.com/scholnicks/splice/wiki for more details.
 
-splice is freeware released under the [MIT License](https://github.com/scholnicks/splice/blob/master/license.txt).
+splice is freeware released under the [MIT License](https://github.com/scholnicks/splice/blob/main/LICENSE).

@@ -123,7 +123,7 @@ Please try entering just your userid without the @... part and see if this corre
 </ol>
 <p>
 If you still have problems, send us a
-<a href="https://scholnick.net/splice/bugreport">bug report</a>.
+<a href="/bugreport">bug report</a>.
 </p>
 
 EOE
